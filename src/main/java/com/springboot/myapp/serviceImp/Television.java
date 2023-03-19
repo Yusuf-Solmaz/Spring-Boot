@@ -4,10 +4,10 @@ import com.springboot.myapp.service.DoSomething;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Play implements DoSomething {
+public class Television implements DoSomething {
 
     @Override
-    public String playComputerGames() {
-        return "Playing Computer Games!";
+    public String useIt() {
+        return "Watching TV!";
     }
 }
