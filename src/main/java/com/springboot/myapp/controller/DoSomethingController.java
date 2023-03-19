@@ -10,25 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DoSomethingController {
 
-    private DoSomething television;
-    private DoSomething computer;
+    private DoSomething smartPhone;
 
     @Autowired
-    public DoSomethingController(@Qualifier("television") DoSomething television,@Qualifier("computer") DoSomething computer) {
+    public DoSomethingController(@Qualifier("smartPhone") DoSomething smartPhone) {
         System.out.println(getClass().getSimpleName());
-        this.television = television;
-        this.computer = computer;
+        this.smartPhone=smartPhone;
 
     }
 
-    @GetMapping("/watch")
-    public  String watch(){
-        return television.useIt();
+    @GetMapping("play")
+    public String play(){
+        return smartPhone.useIt();
     }
 
-    @GetMapping("/play")
-    public  String pla1(){
-        return computer.useIt();
-    }
 
 }
