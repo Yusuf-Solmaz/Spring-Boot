@@ -14,6 +14,7 @@ public class DoSomethingController {
 
     @Autowired
     public DoSomethingController(@Qualifier("television") DoSomething doSomething) {
+        System.out.println(getClass().getSimpleName());
         this.doSomething = doSomething;
 
     }

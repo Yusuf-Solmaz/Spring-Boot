@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 public class Computer implements DoSomething {
 
 
+    public Computer() {
+        System.out.println(getClass().getSimpleName());
+    }
+
     @Override
     public String useIt() {
         return "Playing Computer Games!";
