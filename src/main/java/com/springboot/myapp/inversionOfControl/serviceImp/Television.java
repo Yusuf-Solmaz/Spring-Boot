@@ -1,6 +1,6 @@
-package com.springboot.myapp.serviceImp;
+package com.springboot.myapp.inversionOfControl.serviceImp;
 
-import com.springboot.myapp.service.DoSomething;
+import com.springboot.myapp.inversionOfControl.service.DoSomething;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class Television implements DoSomething {
 
     public Television() {
-        System.out.println(getClass().getSimpleName());
+        //System.out.println(getClass().getSimpleName());
     }
 
     @Override

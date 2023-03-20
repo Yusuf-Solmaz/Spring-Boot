@@ -1,4 +1,4 @@
-package com.springboot.myapp.controller;
+package com.springboot.myapp.inversionOfControl.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

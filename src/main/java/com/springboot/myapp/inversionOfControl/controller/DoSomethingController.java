@@ -1,7 +1,7 @@
-package com.springboot.myapp.controller;
+package com.springboot.myapp.inversionOfControl.controller;
 
 
-import com.springboot.myapp.service.DoSomething;
+import com.springboot.myapp.inversionOfControl.service.DoSomething;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ public class DoSomethingController {
 
     @Autowired
     public DoSomethingController(@Qualifier("smartPhone") DoSomething smartPhone) {
-        System.out.println(getClass().getSimpleName());
+        //System.out.println(getClass().getSimpleName());
         this.smartPhone=smartPhone;
 
     }

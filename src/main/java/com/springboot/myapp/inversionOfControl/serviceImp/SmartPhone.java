@@ -1,6 +1,6 @@
-package com.springboot.myapp.serviceImp;
+package com.springboot.myapp.inversionOfControl.serviceImp;
 
-import com.springboot.myapp.service.DoSomething;
+import com.springboot.myapp.inversionOfControl.service.DoSomething;
 
 public class SmartPhone implements DoSomething {
     @Override

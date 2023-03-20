@@ -1,10 +1,8 @@
-package com.springboot.myapp.serviceImp;
+package com.springboot.myapp.inversionOfControl.serviceImp;
 
-import com.springboot.myapp.service.DoSomething;
+import com.springboot.myapp.inversionOfControl.service.DoSomething;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,9 +11,10 @@ public class Computer implements DoSomething {
 
 
     public Computer() {
-        System.out.println(getClass().getSimpleName());
+        //System.out.println(getClass().getSimpleName());
     }
 
+    /*
     @PostConstruct
     public void postConstructMethod(){
         System.out.println("Post Construct Worked for: "+ getClass().getSimpleName());
@@ -25,6 +24,7 @@ public class Computer implements DoSomething {
     public void preDestroyMethod(){
         System.out.println("Pre-Destroy Worked for: "+ getClass().getSimpleName());
     }
+    */
 
     @Override
     public String useIt() {

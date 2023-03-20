@@ -1,7 +1,7 @@
-package com.springboot.myapp.config;
+package com.springboot.myapp.inversionOfControl.config;
 
-import com.springboot.myapp.service.DoSomething;
-import com.springboot.myapp.serviceImp.SmartPhone;
+import com.springboot.myapp.inversionOfControl.service.DoSomething;
+import com.springboot.myapp.inversionOfControl.serviceImp.SmartPhone;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
