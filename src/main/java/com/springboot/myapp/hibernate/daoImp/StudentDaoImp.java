@@ -3,6 +3,7 @@ package com.springboot.myapp.hibernate.daoImp;
 import com.springboot.myapp.hibernate.dao.StudentDao;
 import com.springboot.myapp.hibernate.entity.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Table;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -49,11 +50,13 @@ public class StudentDaoImp implements StudentDao {
     }
 
     @Override
+    @Transactional
     public void updateStudent(Student student) {
         entityManagerity.merge(student);
     }
 
     @Override
+    @Transactional
     public void deleteStudent(int id) {
         entityManagerity.remove(entityManagerity.find(Student.class,id));
     }
