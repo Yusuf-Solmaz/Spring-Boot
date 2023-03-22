@@ -47,4 +47,11 @@ public class StudentDaoImp implements StudentDao {
 
         return query.getSingleResult();
     }
+
+    @Override
+    public void updateStudent(Student student) {
+        entityManagerity.merge(student);
+    }
+
+
 }
