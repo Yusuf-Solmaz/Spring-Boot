@@ -1,12 +1,16 @@
 package com.springboot.myapp;
 
 import com.springboot.myapp.hibernate.dao.StudentDao;
+import com.springboot.myapp.hibernate.dao.TeacherDao;
 import com.springboot.myapp.hibernate.entity.Student;
+import com.springboot.myapp.hibernate.entity.Teacher;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.Optional;
 
 @SpringBootApplication(
 		scanBasePackages = {"com.springboot.myapp","com.springboot.util"})
@@ -17,15 +21,46 @@ public class MyappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(StudentDao studentDao){
+	public CommandLineRunner commandLineRunner(TeacherDao teacherDao){
 		return runner -> {
-			createStudent(studentDao);
+			//createStudent(studentDao);
+			//findStudentById(studentDao);
+			//createTeacher(teacherDao);
+			findTeacherById(teacherDao);
 		};
 	}
 
+	private void findTeacherById(TeacherDao teacherDao) {
+		int id=15;
+		Optional<Teacher> teacher = teacherDao.findById(id);
+		if(teacher.isEmpty()){
+			System.out.println("There is no such teacher.");
+		}
+		else{
+			System.out.println("Teacher Found!");
+			System.out.println(teacher);
+		}
+	}
+
+	private void createTeacher(TeacherDao teacherDao) {
+		Teacher teacher = new Teacher("Yusuf","Mücahit","Math");
+		teacherDao.save(teacher);
+		System.out.println("Teacher Saved!");
+	}
+
 	private void createStudent( StudentDao studentDao){
-		Student student = new Student("Erkam","Solmaz");
+		Student student = new Student("Yusuf","Solmaz");
 		studentDao.save(student);
 		System.out.println("Student saved!: "+student.getId());
 	}
+	private void findStudentById(StudentDao studentDao){
+		int id=2;
+		if (studentDao.findById(id)!=null){
+			System.out.println("Student Found");
+			System.out.println(studentDao.findById(id));
+		}
+		else{
+			System.out.println("There is no such student.");
+		}
+		}
 }
