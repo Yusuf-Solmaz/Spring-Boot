@@ -24,4 +24,9 @@ public class StudentDaoImp implements StudentDao {
     public void save(Student student) {
         entityManagerity.persist(student);
     }
+
+    @Override
+    public Student findById(Integer id) {
+        return entityManagerity.find(Student.class,id);
+    }
 }

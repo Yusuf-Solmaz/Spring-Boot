@@ -5,4 +5,6 @@ import com.springboot.myapp.hibernate.entity.Student;
 
 public interface StudentDao {
     void save(Student student);
+
+    Student findById(Integer id);
 }
