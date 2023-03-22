@@ -53,5 +53,10 @@ public class StudentDaoImp implements StudentDao {
         entityManagerity.merge(student);
     }
 
+    @Override
+    public void deleteStudent(int id) {
+        entityManagerity.remove(entityManagerity.find(Student.class,id));
+    }
+
 
 }
