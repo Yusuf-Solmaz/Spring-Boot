@@ -13,4 +13,5 @@ public interface TeacherDao {
     Optional<Teacher> findById(Integer id);
     List<Teacher> findAllTeacher();
 
+    List<Teacher> findAllByLastName(String lastName);
 }

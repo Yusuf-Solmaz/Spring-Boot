@@ -36,4 +36,9 @@ public class TeacherDaoImp implements TeacherDao {
     public List<Teacher> findAllTeacher() {
         return teacherRepo.findAll();
     }
+
+    @Override
+    public List<Teacher> findAllByLastName(String lastName) {
+        return teacherRepo.findLastnameWithQuerries(lastName);
+    }
 }
