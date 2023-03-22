@@ -6,6 +6,7 @@ import com.springboot.myapp.hibernate.entity.Teacher;
 import com.springboot.myapp.hibernate.repo.TeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class TeacherDaoImp implements TeacherDao {
     }
 
     @Override
+    @Transactional
     public void save(Teacher teacher) {
         teacherRepo.save(teacher);
     }
