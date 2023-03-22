@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -29,5 +30,10 @@ public class TeacherDaoImp implements TeacherDao {
     @Override
     public Optional<Teacher> findById(Integer id) {
         return teacherRepo.findById(id);
+    }
+
+    @Override
+    public List<Teacher> findAllTeacher() {
+        return teacherRepo.findAll();
     }
 }

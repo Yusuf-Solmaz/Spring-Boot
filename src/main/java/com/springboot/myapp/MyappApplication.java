@@ -26,8 +26,20 @@ public class MyappApplication {
 			//createStudent(studentDao);
 			//findStudentById(studentDao);
 			//createTeacher(teacherDao);
-			findTeacherById(teacherDao);
+			//findTeacherById(teacherDao);
+			findAllTeachers(teacherDao);
 		};
+	}
+
+	private void findAllTeachers(TeacherDao teacherDao) {
+		if (teacherDao.findAllTeacher()==null){
+			System.out.println("There is no such teachers.");
+		}
+		else{
+			for (Teacher teacher: teacherDao.findAllTeacher()){
+				System.out.println(teacher);
+			}
+		}
 	}
 
 	private void findTeacherById(TeacherDao teacherDao) {
