@@ -46,4 +46,9 @@ public class TeacherDaoImp implements TeacherDao {
     public void updateTeacher(String firstName, String lastName, String branch, int id) {
         teacherRepo.update(firstName,lastName,branch,id);
     }
+
+    @Override
+    public void deleteById(int id) {
+        teacherRepo.deleteById(id);
+    }
 }

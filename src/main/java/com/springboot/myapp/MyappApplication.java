@@ -31,8 +31,15 @@ public class MyappApplication {
 			//findAllStudents(studentDao);
 			//findAllByLastName(teacherDao);
 			//findByNameAndLastName(studentDao);
-			updateTeacher(teacherDao);
+			//updateTeacher(teacherDao);
+			//deleteTeacherById(teacherDao);
 		};
+	}
+
+	private void deleteTeacherById(TeacherDao teacherDao) {
+		int id=2;
+		teacherDao.deleteById(id);
+		System.out.println("Teacher Deleted!");
 	}
 
 	private void updateTeacher(TeacherDao teacherDao) {
