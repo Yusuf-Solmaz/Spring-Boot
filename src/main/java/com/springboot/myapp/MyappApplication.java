@@ -21,14 +21,21 @@ public class MyappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(TeacherDao teacherDao){
+	public CommandLineRunner commandLineRunner(StudentDao studentDao){
 		return runner -> {
 			//createStudent(studentDao);
 			//findStudentById(studentDao);
 			//createTeacher(teacherDao);
 			//findTeacherById(teacherDao);
-			findAllTeachers(teacherDao);
+			//findAllTeachers(teacherDao);
+			//findAllStudents(studentDao);
 		};
+	}
+
+	private void findAllStudents(StudentDao studentDao) {
+		for(Student student: studentDao.findAllStudents()){
+			System.out.println(student);
+		}
 	}
 
 	private void findAllTeachers(TeacherDao teacherDao) {
