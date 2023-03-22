@@ -1,5 +1,8 @@
 package com.springboot.myapp;
 
+import com.springboot.myapp.hibernate.dao.StudentDao;
+import com.springboot.myapp.hibernate.entity.Student;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +17,15 @@ public class MyappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(String [] args){
+	public CommandLineRunner commandLineRunner(StudentDao studentDao){
 		return runner -> {
-			System.out.println("Hello!");
+			createStudent(studentDao);
 		};
+	}
+
+	private void createStudent( StudentDao studentDao){
+		Student student = new Student("Erkam","Solmaz");
+		studentDao.save(student);
+		System.out.println("Student saved!: "+student.getId());
 	}
 }
