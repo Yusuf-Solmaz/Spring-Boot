@@ -21,7 +21,7 @@ public class MyappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(StudentDao studentDao){
+	public CommandLineRunner commandLineRunner(TeacherDao teacherDao){
 		return runner -> {
 			//createStudent(studentDao);
 			//findStudentById(studentDao);
@@ -30,8 +30,18 @@ public class MyappApplication {
 			//findAllTeachers(teacherDao);
 			//findAllStudents(studentDao);
 			//findAllByLastName(teacherDao);
-			findByNameAndLastName(studentDao);
+			//findByNameAndLastName(studentDao);
+			updateTeacher(teacherDao);
 		};
+	}
+
+	private void updateTeacher(TeacherDao teacherDao) {
+		int id=2;
+		String name="Ahmet";
+		String lastName="Solmaz";
+		String branch="Biology";
+		teacherDao.updateTeacher(name,lastName,branch,id);
+		System.out.println("Teacher Updated!");
 	}
 
 	private void findByNameAndLastName(StudentDao studentDao) {

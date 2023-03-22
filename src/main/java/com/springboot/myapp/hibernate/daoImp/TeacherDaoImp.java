@@ -41,4 +41,9 @@ public class TeacherDaoImp implements TeacherDao {
     public List<Teacher> findAllByLastName(String lastName) {
         return teacherRepo.findLastnameWithQuerries(lastName);
     }
+
+    @Override
+    public void updateTeacher(String firstName, String lastName, String branch, int id) {
+        teacherRepo.update(firstName,lastName,branch,id);
+    }
 }

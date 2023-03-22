@@ -14,4 +14,6 @@ public interface TeacherDao {
     List<Teacher> findAllTeacher();
 
     List<Teacher> findAllByLastName(String lastName);
+
+    void updateTeacher(String firstName, String lastName, String branch, int id);
 }
