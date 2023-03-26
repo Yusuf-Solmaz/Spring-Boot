@@ -1,11 +1,12 @@
 package com.springboot.myapp.springRest.controller;
 
 import com.springboot.myapp.springRest.entity.Car;
+import com.springboot.myapp.springRest.exceptions.CarErrorResponse;
+import com.springboot.myapp.springRest.exceptions.CarNotFoundException;
 import jakarta.annotation.PostConstruct;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping("/car")
 public class CarRestController {
     List<Car> carList = new ArrayList<>();
+
 
     @PostConstruct
     public void loadData(){
@@ -29,6 +31,18 @@ public class CarRestController {
 
     @GetMapping("/findMyCar/{id}")
     public Car findMyCar(@PathVariable int id){
+        if (carList.size()<id || 0>=id){
+            throw new CarNotFoundException("Car not found!");
+        }
         return carList.get(id-1);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<CarErrorResponse> responseEntity (CarNotFoundException exception){
+        CarErrorResponse errorResponse = new CarErrorResponse();
+        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
+        errorResponse.setMessage(exception.getMessage());
+        errorResponse.setTime(System.currentTimeMillis());
+        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
     }
 }
