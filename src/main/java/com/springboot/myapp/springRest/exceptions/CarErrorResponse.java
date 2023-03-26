@@ -1,17 +1,41 @@
 package com.springboot.myapp.springRest.exceptions;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class CarErrorResponse {
-    private String status;
+
+    private int status;
     private String message;
     private long time;
 
+    public CarErrorResponse() {
+    }
+
+    public CarErrorResponse(int status, String message, long time) {
+        this.status = status;
+        this.message = message;
+        this.time = time;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
+    }
 }
