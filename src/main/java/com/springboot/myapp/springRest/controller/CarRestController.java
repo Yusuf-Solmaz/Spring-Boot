@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/car")
+@RequestMapping("/cars")
 public class CarRestController {
     List<Car> carList = new ArrayList<>();
 
@@ -37,21 +37,5 @@ public class CarRestController {
         return carList.get(id-1);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<CarErrorResponse> responseEntity (CarNotFoundException exception){
-        CarErrorResponse errorResponse = new CarErrorResponse();
-        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
-        errorResponse.setMessage(exception.getMessage());
-        errorResponse.setTime(System.currentTimeMillis());
-        return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
-    }
 
-    @ExceptionHandler
-    public ResponseEntity<CarErrorResponse> responseE (Exception exc){
-        CarErrorResponse errorResponse = new CarErrorResponse();
-        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponse.setMessage("Enter a number!");
-        errorResponse.setTime(System.currentTimeMillis());
-        return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
-    }
 }
