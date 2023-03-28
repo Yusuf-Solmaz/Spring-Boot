@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class StudentRestExceptionHandler {
+public class CarRestExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<CarErrorResponse> responseEntity (CarNotFoundException exception){
