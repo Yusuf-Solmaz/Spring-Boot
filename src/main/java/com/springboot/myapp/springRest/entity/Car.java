@@ -1,10 +1,23 @@
 package com.springboot.myapp.springRest.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "car")
 public class Car {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "id")
     private int id;
+
+    @JoinColumn(name = "brand")
     private String brand;
+
+    @JoinColumn(name = "color")
     private String color;
 
+    @JoinColumn(name = "brand")
     public String getBrand() {
         return brand;
     }
@@ -34,6 +47,12 @@ public class Car {
         this.brand = brand;
         this.color = color;
     }
+
+    public Car( String brand, String color) {
+        this.brand = brand;
+        this.color = color;
+    }
+
 
 
     public Car() {
