@@ -1,22 +1,23 @@
-package com.springboot.myapp.springRest.daoImp;
+package com.springboot.myapp.springRest.serviceImp;
 
-import com.springboot.myapp.springRest.dao.CarDao;
+import com.springboot.myapp.springRest.service.CarService;
 import com.springboot.myapp.springRest.entity.Car;
 import com.springboot.myapp.springRest.repo.CarRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
-public class CarDaoImp implements CarDao {
+@Service
+public class CarServiceImp implements CarService {
 
     private CarRepo carRepo;
 
     @Autowired
-    public CarDaoImp(CarRepo carRepo) {
+    public CarServiceImp(CarRepo carRepo) {
         this.carRepo = carRepo;
     }
 

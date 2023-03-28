@@ -1,6 +1,6 @@
 package com.springboot.myapp.springRest.controller;
 
-import com.springboot.myapp.springRest.dao.CarDao;
+import com.springboot.myapp.springRest.service.CarService;
 import com.springboot.myapp.springRest.entity.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,26 +12,26 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class CarController {
 
-    private CarDao carDao;
+    private CarService carService;
 
     @Autowired
-    public CarController(CarDao carDao) {
-        this.carDao = carDao;
+    public CarController(CarService carService) {
+        this.carService = carService;
     }
 
     @GetMapping("/cars")
     public List<Car> getAll(){
-        return carDao.getAll();
+        return carService.getAll();
     }
 
     @GetMapping("cars/{id}")
     public Optional<Car> getCarById(@PathVariable int id){
-        return carDao.getOne(id);
+        return carService.getOne(id);
     }
 
     @PostMapping("cars")
     public void save(@RequestBody Car car){
-        carDao.save(car);
+        carService.save(car);
     }
 
 
