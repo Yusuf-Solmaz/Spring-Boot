@@ -19,12 +19,12 @@ public class CarRestExceptionHandler {
         return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
     }
 
-   @ExceptionHandler
+   /*@ExceptionHandler
     public ResponseEntity<CarErrorResponse> responseE (Exception exc){
         CarErrorResponse errorResponse = new CarErrorResponse();
         errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
         errorResponse.setMessage("Enter a number!");
         errorResponse.setTime(System.currentTimeMillis());
         return new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
-    }
+    }*/
 }
