@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cars")
 public class CarController {
 
     private CarService carService;
@@ -19,21 +19,28 @@ public class CarController {
         this.carService = carService;
     }
 
-    @GetMapping("/cars")
+    @GetMapping()
     public List<Car> getAll(){
         return carService.getAll();
     }
 
-    @GetMapping("cars/{id}")
+    @GetMapping("/{id}")
     public Optional<Car> getCarById(@PathVariable int id){
         return carService.getOne(id);
     }
 
-    @PostMapping("cars")
+    @PostMapping()
     public void save(@RequestBody Car car){
         carService.save(car);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteCarById(@PathVariable int id){
+        carService.delete(id);
+    }
 
-
+    @PutMapping()
+    public void update(@RequestBody Car car){
+        carService.update(car.getId(), car.getColor(), car.getBrand());
+    }
 }

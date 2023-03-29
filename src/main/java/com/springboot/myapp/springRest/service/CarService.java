@@ -11,6 +11,6 @@ public interface CarService {
     public void save(Car car);
     public Optional<Car> getOne(int id);
     public List<Car> getAll();
-    public void update(String color, String brand);
+    public void update(int id,String color, String brand);
     public void delete(int id);
 }

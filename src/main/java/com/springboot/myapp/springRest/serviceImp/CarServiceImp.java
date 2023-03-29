@@ -1,5 +1,6 @@
 package com.springboot.myapp.springRest.serviceImp;
 
+import com.springboot.myapp.springRest.exceptions.CarNotFoundException;
 import com.springboot.myapp.springRest.service.CarService;
 import com.springboot.myapp.springRest.entity.Car;
 import com.springboot.myapp.springRest.repo.CarRepo;
@@ -31,7 +32,7 @@ public class CarServiceImp implements CarService {
     @Override
     public Optional<Car> getOne(int id) {
         if (carRepo.findById(id).isEmpty()){
-            System.out.println("There is no such a car!");
+            throw new  CarNotFoundException("There is no such a car!");
         }
         System.out.println("Car found!");
         return carRepo.findById(id);
@@ -44,9 +45,9 @@ public class CarServiceImp implements CarService {
 
     @Override
     @Transactional
-    public void update(String color, String brand) {
+    public void update(int id,String color, String brand) {
         System.out.println("Car updated!");
-        carRepo.updateColorAndBrandBy(color,brand);
+        carRepo.updateColorAndBrandById(color,brand,id);
     }
 
     @Override
