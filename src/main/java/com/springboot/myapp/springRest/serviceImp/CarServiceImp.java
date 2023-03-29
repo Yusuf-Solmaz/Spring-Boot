@@ -45,9 +45,13 @@ public class CarServiceImp implements CarService {
 
     @Override
     @Transactional
-    public void update(int id,String color, String brand) {
+    public void update(Car car) {
+        if (carRepo.findById(car.getId()).isEmpty())
+        {
+            throw new CarNotFoundException("There is no such a car!");
+        }
         System.out.println("Car updated!");
-        carRepo.updateColorAndBrandById(color,brand,id);
+        carRepo.updateColorAndBrandById(car.getColor(), car.getBrand(), car.getId());
     }
 
     @Override

@@ -41,6 +41,6 @@ public class CarController {
 
     @PutMapping()
     public void update(@RequestBody Car car){
-        carService.update(car.getId(), car.getColor(), car.getBrand());
+        carService.update(car);
     }
 }
