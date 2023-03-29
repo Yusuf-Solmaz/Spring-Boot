@@ -23,7 +23,6 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    @Transactional
     public void save(Car car) {
         carRepo.save(car);
         System.out.println("Car saved!");
@@ -44,7 +43,6 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    @Transactional
     public void update(Car car) {
         if (carRepo.findById(car.getId()).isEmpty())
         {
@@ -55,7 +53,6 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    @Transactional
     public void delete(int id) {
         System.out.println("Car deleted!");
         carRepo.deleteById(id);
