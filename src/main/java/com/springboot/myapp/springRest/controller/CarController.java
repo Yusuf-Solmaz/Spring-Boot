@@ -30,8 +30,11 @@ public class CarController {
     }
 
     @PostMapping()
-    public void save(@RequestBody Car car){
-        carService.save(car);
+    public Car save(@RequestBody Car car){
+        car.setId(0);
+        Car savedCar = carService.save(car);
+
+        return savedCar;
     }
 
     @DeleteMapping("/{id}")
@@ -40,7 +43,9 @@ public class CarController {
     }
 
     @PutMapping()
-    public void update(@RequestBody Car car){
-        carService.update(car);
+    public Car update(@RequestBody Car car){
+        Car savedCar = carService.save(car);
+
+        return savedCar;
     }
 }

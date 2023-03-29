@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Component
 public interface CarService {
-    public void save(Car car);
+    public Car save(Car car);
     public Optional<Car> getOne(int id);
     public List<Car> getAll();
     public void update(Car car);

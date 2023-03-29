@@ -23,9 +23,10 @@ public class CarServiceImp implements CarService {
     }
 
     @Override
-    public void save(Car car) {
-        carRepo.save(car);
+    public Car save(Car car) {
+        Car savedCar= carRepo.save(car);
         System.out.println("Car saved!");
+        return savedCar;
     }
 
     @Override
